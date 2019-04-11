@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aplicacao1.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,71 +20,29 @@ namespace Aplicacao1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            decimal custo=0, margem=0, estoque=0, venda;
-            Boolean erro = false;
 
-            if (txtCusto.Text == "")
+            Produto prod = new Produto();
+            var resposta = prod.ValidarCadastro(txtDescri.Text, txtCusto.Text, txtMargem.Text,
+                 txtVenda.Text, txtEstoque.Text);
+
+            if ( ! resposta.Item1  )
             {
-                MessageBox.Show("O valor de custo é obrigatório ");
-                erro = true;
+                ProdutoRepository prodData = new ProdutoRepository();
+                prodData.Incluir(prod);
+
             }
             else
             {
-                if( ! Decimal.TryParse(txtCusto.Text, out custo ) )
-                {
-                    MessageBox.Show("O valor de custo não é um número válido ");
-                    erro = true;
-                }
-            }
-
-            if (txtMargem.Text == "")
-            {
-                MessageBox.Show("A margem de lucro é obrigatória !");
-                erro = true;
-            }
-            else
-            {
-                if (!Decimal.TryParse(txtMargem.Text, out margem))
-                {
-                    MessageBox.Show("O valor de custo não é um número válido ");
-                    erro = true;
-                }
-            }
-
-            if( txtEstoque.Text == "" )
-            {
-                MessageBox.Show("O campo estoque é obrigatório !");
-                erro = true;
-            }
-            else
-            {
-                if (!Decimal.TryParse(txtEstoque.Text, out estoque))
-                {
-                    MessageBox.Show("O estoque não é um número válido ");
-                    erro = true;
-                }
+                MessageBox.Show("Não foi possível validar os itens "+ resposta.Item2 );
             }
 
 
-            if (!erro)
-            {
-                venda = custo + (custo * margem / 100);
-                txtVenda.Text = venda.ToString("###,##0.00");
+        }
 
-                Produto prod = new Produto();
-                prod.Descricao = txtDescri.Text;
-                prod.Custo = custo;
-                prod.Margem = margem;
-                prod.ValorVenda = venda;
-                prod.Estoque = estoque;
-
-                if (! prod.PodeVender(10))
-                    MessageBox.Show("não há itens suficientes no estoque ");
-
-
-            }
-
-
+        private void btnConsultarTodos_Click(object sender, EventArgs e)
+        {
+            FrmConsultaProdutos form = new FrmConsultaProdutos();
+            form.ShowDialog();
         }
     }
 }

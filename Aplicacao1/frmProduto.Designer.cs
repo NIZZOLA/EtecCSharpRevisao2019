@@ -39,6 +39,7 @@
             this.txtDescri = new System.Windows.Forms.TextBox();
             this.txtEstoque = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnConsultarTodos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -131,11 +132,22 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Estoque:";
             // 
+            // btnConsultarTodos
+            // 
+            this.btnConsultarTodos.Location = new System.Drawing.Point(389, 241);
+            this.btnConsultarTodos.Name = "btnConsultarTodos";
+            this.btnConsultarTodos.Size = new System.Drawing.Size(133, 23);
+            this.btnConsultarTodos.TabIndex = 11;
+            this.btnConsultarTodos.Text = "Consultar todos";
+            this.btnConsultarTodos.UseVisualStyleBackColor = true;
+            this.btnConsultarTodos.Click += new System.EventHandler(this.btnConsultarTodos_Click);
+            // 
             // frmProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 308);
+            this.Controls.Add(this.btnConsultarTodos);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtEstoque);
             this.Controls.Add(this.txtDescri);
@@ -167,5 +179,6 @@
         private System.Windows.Forms.TextBox txtDescri;
         private System.Windows.Forms.TextBox txtEstoque;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnConsultarTodos;
     }
 }
