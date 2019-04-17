@@ -38,6 +38,7 @@ namespace Aplicacao1.Data
         {
             var item = ctx.Produtos.Where(a => a.ProdutoId == codigo).FirstOrDefault();
             ctx.Produtos.Remove(item);
+            ctx.SaveChanges();
         }
 
         public Produto Consultar(int codigo)

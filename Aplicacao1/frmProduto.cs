@@ -18,6 +18,23 @@ namespace Aplicacao1
             InitializeComponent();
         }
 
+        public void CarregarItem( int codigo )
+        {
+            ProdutoRepository prodData = new ProdutoRepository();
+            Produto prod = prodData.Consultar(codigo);
+
+            txtDescri.Text = prod.Descricao;
+            txtCusto.Text = prod.Custo.ToString();
+            txtMargem.Text = prod.Margem.ToString();
+            txtEstoque.Text = prod.Estoque.ToString();
+            txtVenda.Text = prod.ValorVenda.ToString();
+            txtCodigo.Text = prod.ProdutoId.ToString();
+
+            txtCodigo.Visible = true;
+            lblCodigo.Visible = true;
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -39,10 +56,11 @@ namespace Aplicacao1
 
         }
 
-        private void btnConsultarTodos_Click(object sender, EventArgs e)
+   
+
+        private void frmProduto_Load(object sender, EventArgs e)
         {
-            FrmConsultaProdutos form = new FrmConsultaProdutos();
-            form.ShowDialog();
+
         }
     }
 }
