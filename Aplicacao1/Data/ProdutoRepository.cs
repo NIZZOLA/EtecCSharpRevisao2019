@@ -23,7 +23,7 @@ namespace Aplicacao1.Data
 
         public void Alterar( Produto prod )
         {
-            var item = ctx.Produtos.Where(a => a.ProdutoId == prod.ProdutoId).FirstOrDefault();
+            var item = this.Consultar(prod.ProdutoId);
             item.Descricao = prod.Descricao;
             item.Custo = prod.Custo;
             item.Margem = prod.Margem;
@@ -31,12 +31,12 @@ namespace Aplicacao1.Data
 
             ctx.Produtos.Attach(item);
             ctx.Entry(item).State = System.Data.Entity.EntityState.Modified;
-                
+            ctx.SaveChanges();
         }
 
         public void Excluir(int codigo )
         {
-            var item = ctx.Produtos.Where(a => a.ProdutoId == codigo).FirstOrDefault();
+            var item = this.Consultar(codigo);
             ctx.Produtos.Remove(item);
             ctx.SaveChanges();
         }

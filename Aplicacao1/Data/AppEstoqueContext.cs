@@ -13,6 +13,8 @@ namespace Aplicacao1.Data
         // declara as classes que darão origem à tabelas no banco
         public DbSet<Produto> Produtos { get; set; }
 
+        public DbSet<Funcionario> Funcionarios { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
