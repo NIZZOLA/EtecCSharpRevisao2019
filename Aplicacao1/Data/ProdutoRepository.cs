@@ -31,7 +31,7 @@ namespace Aplicacao1.Data
 
             ctx.Produtos.Attach(item);
             ctx.Entry(item).State = System.Data.Entity.EntityState.Modified;
-               
+            ctx.SaveChanges();
         }
 
         public void Excluir(int codigo )
