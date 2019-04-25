@@ -116,6 +116,7 @@
             // mskFone
             // 
             this.mskFone.Location = new System.Drawing.Point(101, 103);
+            this.mskFone.Mask = "(99)00000-0000";
             this.mskFone.Name = "mskFone";
             this.mskFone.Size = new System.Drawing.Size(100, 20);
             this.mskFone.TabIndex = 9;
@@ -140,6 +141,7 @@
             // 
             this.txtSenha.Location = new System.Drawing.Point(101, 176);
             this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(100, 20);
             this.txtSenha.TabIndex = 13;
             // 
@@ -155,13 +157,17 @@
             // mskNascimento
             // 
             this.mskNascimento.Location = new System.Drawing.Point(101, 223);
+            this.mskNascimento.Mask = "00/00/0000";
             this.mskNascimento.Name = "mskNascimento";
             this.mskNascimento.Size = new System.Drawing.Size(100, 20);
             this.mskNascimento.TabIndex = 15;
+            this.mskNascimento.ValidatingType = typeof(System.DateTime);
             // 
             // chkAtivo
             // 
             this.chkAtivo.AutoSize = true;
+            this.chkAtivo.Checked = true;
+            this.chkAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkAtivo.Location = new System.Drawing.Point(37, 266);
             this.chkAtivo.Name = "chkAtivo";
             this.chkAtivo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

@@ -61,5 +61,10 @@ namespace Aplicacao1.Data
             Funcionario fun = ctx.Funcionarios.Where(a => a.FuncionarioId == codigo).FirstOrDefault();
             return fun;
         }
+
+        public List<Funcionario> ConsultarTodos()
+        {
+            return ctx.Funcionarios.OrderBy(a => a.Nome).ToList();
+        }
     }
 }
