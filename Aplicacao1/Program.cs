@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aplicacao1.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,7 +18,8 @@ namespace Aplicacao1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmPrincipal());
-            Application.Run(new FrmConsultaProdutos());
+            //Application.Run(new FrmConsultaProdutos());
+            Application.Run(new FrmFuncionarios());
         }
     }
 }
